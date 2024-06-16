@@ -6,10 +6,11 @@ namespace Components
     public sealed class HitPointsComponent : MonoBehaviour
     {
         public event Action<GameObject> HpEmpty;
-        
+
         [SerializeField] private int HitPoints;
-        
-        public bool IsHitPointCountNotNull() {
+
+        public bool IsHitPointCountNotNull()
+        {
             return HitPoints > 0;
         }
 

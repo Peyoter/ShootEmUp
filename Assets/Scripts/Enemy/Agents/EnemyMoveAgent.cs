@@ -23,8 +23,8 @@ namespace Enemy.Agents
             {
                 return;
             }
-            
-            var vector = _destination - (Vector2) transform.position;
+
+            var vector = _destination - (Vector2)transform.position;
             if (vector.magnitude <= 0.25f)
             {
                 IsReached = true;

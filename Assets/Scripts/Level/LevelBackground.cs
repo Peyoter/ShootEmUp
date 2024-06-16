@@ -17,8 +17,7 @@ namespace Level
 
         private Transform _myTransform;
 
-         [SerializeField]
-        private Params MParams;
+        [SerializeField] private Params MParams;
 
         private void Awake()
         {
@@ -52,14 +51,11 @@ namespace Level
         [Serializable]
         public sealed class Params
         {
-             [SerializeField]
-            public float MStartPositionY;
+            [SerializeField] public float MStartPositionY;
 
-             [SerializeField]
-            public float MEndPositionY;
+            [SerializeField] public float MEndPositionY;
 
-             [SerializeField]
-            public float MMovingSpeedY;
+            [SerializeField] public float MMovingSpeedY;
         }
     }
 }

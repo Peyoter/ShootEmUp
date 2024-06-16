@@ -6,11 +6,11 @@ namespace Character
 {
     public sealed class CharacterController : MonoBehaviour
     {
-        [SerializeField] private GameObject Character; 
+        [SerializeField] private GameObject Character;
         [SerializeField] private GameManager.GameManager GameManager;
         [SerializeField] private BulletSystem BulletSystem;
         [SerializeField] private BulletConfig BulletConfig;
-        
+
         public bool FireRequired;
 
         private void OnEnable()
@@ -39,12 +39,12 @@ namespace Character
             var weapon = Character.GetComponent<WeaponComponent>();
             BulletSystem.FlyBulletByArgs(new BulletSystem.Args
             {
-                isPlayer = true,
-                physicsLayer = (int) BulletConfig.PhysicsLayer,
-                color = BulletConfig.Color,
-                damage = BulletConfig.Damage,
-                position = weapon.Position,
-                velocity = weapon.Rotation * Vector3.up * BulletConfig.Speed
+                IsPlayer = true,
+                PhysicsLayer = (int)BulletConfig.PhysicsLayer,
+                Color = BulletConfig.Color,
+                Damage = BulletConfig.Damage,
+                Position = weapon.Position,
+                Velocity = weapon.Rotation * Vector3.up * BulletConfig.Speed
             });
         }
     }

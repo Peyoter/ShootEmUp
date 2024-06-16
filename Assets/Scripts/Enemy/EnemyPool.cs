@@ -6,27 +6,19 @@ namespace Enemy
 {
     public sealed class EnemyPool : MonoBehaviour
     {
-        
-        [Header("Spawn")]
-        [SerializeField]
-        private EnemyPositions EnemyPositions;
+        [Header("Spawn")] [SerializeField] private EnemyPositions EnemyPositions;
 
-         [SerializeField]
-        private GameObject Character;
+        [SerializeField] private GameObject Character;
 
-         [SerializeField]
-        private Transform WorldTransform;
+        [SerializeField] private Transform WorldTransform;
 
-        
-        [Header("Pool")]
-        [SerializeField]
-        private Transform Container;
 
-         [SerializeField]
-        private GameObject Prefab;
+        [Header("Pool")] [SerializeField] private Transform Container;
+
+        [SerializeField] private GameObject Prefab;
 
         private readonly Queue<GameObject> _enemyPool = new();
-        
+
         private void Awake()
         {
             for (var i = 0; i < 7; i++)
@@ -47,7 +39,7 @@ namespace Enemy
 
             var spawnPosition = EnemyPositions.RandomSpawnPosition();
             enemy.transform.position = spawnPosition.position;
-            
+
             var attackPosition = EnemyPositions.RandomAttackPosition();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
 

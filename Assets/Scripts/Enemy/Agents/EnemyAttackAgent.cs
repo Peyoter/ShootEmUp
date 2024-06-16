@@ -32,7 +32,7 @@ namespace Enemy.Agents
             {
                 return;
             }
-            
+
             if (!_target.GetComponent<HitPointsComponent>().IsHitPointCountNotNull())
             {
                 return;
@@ -49,7 +49,7 @@ namespace Enemy.Agents
         private void Fire()
         {
             var startPosition = WeaponComponent.Position;
-            var vector = (Vector2) _target.transform.position - startPosition;
+            var vector = (Vector2)_target.transform.position - startPosition;
             var direction = vector.normalized;
             OnFire?.Invoke(gameObject, startPosition, direction);
         }

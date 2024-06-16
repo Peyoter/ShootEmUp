@@ -10,12 +10,10 @@ namespace Enemy
 {
     public sealed class EnemyManager : MonoBehaviour
     {
-         [SerializeField]
-        private EnemyPool EnemyPool;
+        [SerializeField] private EnemyPool EnemyPool;
 
-         [SerializeField]
-        private BulletSystem BulletSystem;
-        
+        [SerializeField] private BulletSystem BulletSystem;
+
         private readonly HashSet<GameObject> _mActiveEnemies = new();
 
         private IEnumerator Start()
@@ -30,7 +28,7 @@ namespace Enemy
                     {
                         enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;
                         enemy.GetComponent<EnemyAttackAgent>().OnFire += OnFire;
-                    }    
+                    }
                 }
             }
         }
@@ -50,12 +48,12 @@ namespace Enemy
         {
             BulletSystem.FlyBulletByArgs(new BulletSystem.Args
             {
-                isPlayer = false,
-                physicsLayer = (int) PhysicsLayer.ENEMY,
-                color = Color.red,
-                damage = 1,
-                position = position,
-                velocity = direction * 2.0f
+                IsPlayer = false,
+                PhysicsLayer = (int)PhysicsLayer.ENEMY,
+                Color = Color.red,
+                Damage = 1,
+                Position = position,
+                Velocity = direction * 2.0f
             });
         }
     }

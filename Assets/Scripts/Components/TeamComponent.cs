@@ -8,8 +8,7 @@ namespace Components
         {
             get { return isPlayer; }
         }
-        
-        [SerializeField]
-        private bool isPlayer;
+
+        [SerializeField] private bool isPlayer;
     }
 }

@@ -4,11 +4,9 @@ namespace Enemy
 {
     public sealed class EnemyPositions : MonoBehaviour
     {
-         [SerializeField]
-        private Transform[] SpawnPositions;
+        [SerializeField] private Transform[] SpawnPositions;
 
-         [SerializeField]
-        private Transform[] AttackPositions;
+        [SerializeField] private Transform[] AttackPositions;
 
         public Transform RandomSpawnPosition()
         {

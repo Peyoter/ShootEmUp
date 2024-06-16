@@ -8,11 +8,9 @@ namespace Input
     {
         public float HorizontalDirection { get; private set; }
 
-         [SerializeField]
-        private GameObject Character;
+        [SerializeField] private GameObject Character;
 
-         [SerializeField]
-        private CharacterController CharacterController;
+        [SerializeField] private CharacterController CharacterController;
 
         private void Update()
         {
@@ -34,10 +32,11 @@ namespace Input
                 HorizontalDirection = 0;
             }
         }
-        
+
         private void FixedUpdate()
         {
-            Character.GetComponent<MoveComponent>().MoveByRigidbodyVelocity(new Vector2(HorizontalDirection, 0) * Time.fixedDeltaTime);
+            Character.GetComponent<MoveComponent>()
+                .MoveByRigidbodyVelocity(new Vector2(HorizontalDirection, 0) * Time.fixedDeltaTime);
         }
     }
 }

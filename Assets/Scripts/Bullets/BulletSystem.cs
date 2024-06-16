@@ -1,32 +1,31 @@
 using System.Collections.Generic;
 using Level;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Bullets
 {
     public sealed class BulletSystem : MonoBehaviour
     {
-        [SerializeField]
-        private int initialCount = 50;
-        
-         [SerializeField] private Transform Container;
-         [SerializeField] private Bullet Prefab;
-         [SerializeField] private Transform WorldTransform;
-         [SerializeField] private LevelBounds LevelBounds;
+        [SerializeField] private int InitialCount = 50;
+        [SerializeField] private Transform Container;
+        [SerializeField] private Bullet Prefab;
+        [SerializeField] private Transform WorldTransform;
+        [SerializeField] private LevelBounds LevelBounds;
 
         private readonly Queue<Bullet> _mBulletPool = new();
         private readonly HashSet<Bullet> _mActiveBullets = new();
         private readonly List<Bullet> _mCache = new();
-        
+
         private void Awake()
         {
-            for (var i = 0; i < initialCount; i++)
+            for (var i = 0; i < InitialCount; i++)
             {
                 var bullet = Instantiate(Prefab, Container);
                 _mBulletPool.Enqueue(bullet);
             }
         }
-        
+
         private void FixedUpdate()
         {
             _mCache.Clear();
@@ -53,19 +52,19 @@ namespace Bullets
                 bullet = Instantiate(Prefab, WorldTransform);
             }
 
-            bullet.SetPosition(args.position);
-            bullet.SetColor(args.color);
-            bullet.SetPhysicsLayer(args.physicsLayer);
-            bullet.Damage = args.damage;
-            bullet.IsPlayer = args.isPlayer;
-            bullet.SetVelocity(args.velocity);
-            
+            bullet.SetPosition(args.Position);
+            bullet.SetColor(args.Color);
+            bullet.SetPhysicsLayer(args.PhysicsLayer);
+            bullet.Damage = args.Damage;
+            bullet.IsPlayer = args.IsPlayer;
+            bullet.SetVelocity(args.Velocity);
+
             if (_mActiveBullets.Add(bullet))
             {
                 bullet.OnCollisionEntered += OnBulletCollision;
             }
         }
-        
+
         private void OnBulletCollision(Bullet bullet, Collision2D collision)
         {
             BulletUtils.DealDamage(bullet, collision.gameObject);
@@ -81,15 +80,15 @@ namespace Bullets
                 _mBulletPool.Enqueue(bullet);
             }
         }
-        
+
         public struct Args
         {
-            public Vector2 position;
-            public Vector2 velocity;
-            public Color color;
-            public int physicsLayer;
-            public int damage;
-            public bool isPlayer;
+            public Vector2 Position;
+            public Vector2 Velocity;
+            public Color Color;
+            public int PhysicsLayer;
+            public int Damage;
+            public bool IsPlayer;
         }
     }
 }

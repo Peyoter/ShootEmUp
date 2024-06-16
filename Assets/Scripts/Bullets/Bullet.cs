@@ -10,11 +10,9 @@ namespace Bullets
         [NonSerialized] public bool IsPlayer;
         [NonSerialized] public int Damage;
 
-        [SerializeField]
-        private new Rigidbody2D Rigidbody2D;
+        [SerializeField] private new Rigidbody2D Rigidbody2D;
 
-        [SerializeField]
-        private SpriteRenderer SpriteRenderer;
+        [SerializeField] private SpriteRenderer SpriteRenderer;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
