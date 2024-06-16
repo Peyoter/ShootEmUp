@@ -4,39 +4,34 @@ namespace ShootEmUp
 {
     public sealed class EnemyMoveAgent : MonoBehaviour
     {
-        public bool IsReached
-        {
-            get { return this.isReached; }
-        }
+        public bool IsReached { get; private set; }
 
-        [SerializeField] private MoveComponent moveComponent;
+        [SerializeField] private MoveComponent MoveComponent;
 
-        private Vector2 destination;
-
-        private bool isReached;
+        private Vector2 _destination;
 
         public void SetDestination(Vector2 endPoint)
         {
-            this.destination = endPoint;
-            this.isReached = false;
+            _destination = endPoint;
+            IsReached = false;
         }
 
         private void FixedUpdate()
         {
-            if (this.isReached)
+            if (IsReached)
             {
                 return;
             }
             
-            var vector = this.destination - (Vector2) this.transform.position;
+            var vector = _destination - (Vector2) transform.position;
             if (vector.magnitude <= 0.25f)
             {
-                this.isReached = true;
+                IsReached = true;
                 return;
             }
 
             var direction = vector.normalized * Time.fixedDeltaTime;
-            this.moveComponent.MoveByRigidbodyVelocity(direction);
+            MoveComponent.MoveByRigidbodyVelocity(direction);
         }
     }
 }
