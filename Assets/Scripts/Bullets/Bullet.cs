@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ShootEmUp
+namespace Bullets
 {
     public sealed class Bullet : MonoBehaviour
     {

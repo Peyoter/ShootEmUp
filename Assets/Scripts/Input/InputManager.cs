@@ -1,6 +1,8 @@
+using Components;
 using UnityEngine;
+using CharacterController = Character.CharacterController;
 
-namespace ShootEmUp
+namespace Input
 {
     public sealed class InputManager : MonoBehaviour
     {
@@ -14,16 +16,16 @@ namespace ShootEmUp
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
                 CharacterController.FireRequired = true;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
             {
                 HorizontalDirection = -1;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
             {
                 HorizontalDirection = 1;
             }

@@ -1,11 +1,13 @@
+using Bullets;
+using Components;
 using UnityEngine;
 
-namespace ShootEmUp
+namespace Character
 {
     public sealed class CharacterController : MonoBehaviour
     {
         [SerializeField] private GameObject Character; 
-        [SerializeField] private GameManager GameManager;
+        [SerializeField] private GameManager.GameManager GameManager;
         [SerializeField] private BulletSystem BulletSystem;
         [SerializeField] private BulletConfig BulletConfig;
         
