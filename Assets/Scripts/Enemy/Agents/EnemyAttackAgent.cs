@@ -33,7 +33,7 @@ namespace Enemy.Agents
                 return;
             }
             
-            if (!_target.GetComponent<HitPointsComponent>().IsHitPointsExists())
+            if (!_target.GetComponent<HitPointsComponent>().IsHitPointCountNotNull())
             {
                 return;
             }

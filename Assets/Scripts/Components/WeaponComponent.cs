@@ -4,17 +4,10 @@ namespace Components
 {
     public sealed class WeaponComponent : MonoBehaviour
     {
-        public Vector2 Position
-        {
-            get { return firePoint.position; }
-        }
+        public Vector2 Position => FirePoint.position;
 
-        public Quaternion Rotation
-        {
-            get { return firePoint.rotation; }
-        }
+        public Quaternion Rotation => FirePoint.rotation;
 
-        [SerializeField]
-        private Transform firePoint;
+        [SerializeField] private Transform FirePoint;
     }
 }

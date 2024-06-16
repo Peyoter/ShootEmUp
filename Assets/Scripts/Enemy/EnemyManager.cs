@@ -28,7 +28,7 @@ namespace Enemy
                 {
                     if (_mActiveEnemies.Add(enemy))
                     {
-                        enemy.GetComponent<HitPointsComponent>().hpEmpty += OnDestroyed;
+                        enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;
                         enemy.GetComponent<EnemyAttackAgent>().OnFire += OnFire;
                     }    
                 }
@@ -39,7 +39,7 @@ namespace Enemy
         {
             if (_mActiveEnemies.Remove(enemy))
             {
-                enemy.GetComponent<HitPointsComponent>().hpEmpty -= OnDestroyed;
+                enemy.GetComponent<HitPointsComponent>().HpEmpty -= OnDestroyed;
                 enemy.GetComponent<EnemyAttackAgent>().OnFire -= OnFire;
 
                 EnemyPool.UnspawnEnemy(enemy);

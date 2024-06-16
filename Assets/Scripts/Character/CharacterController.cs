@@ -15,12 +15,12 @@ namespace Character
 
         private void OnEnable()
         {
-            Character.GetComponent<HitPointsComponent>().hpEmpty += OnCharacterDeath;
+            Character.GetComponent<HitPointsComponent>().HpEmpty += OnCharacterDeath;
         }
 
         private void OnDisable()
         {
-            Character.GetComponent<HitPointsComponent>().hpEmpty -= OnCharacterDeath;
+            Character.GetComponent<HitPointsComponent>().HpEmpty -= OnCharacterDeath;
         }
 
         private void OnCharacterDeath(GameObject _) => GameManager.FinishGame();

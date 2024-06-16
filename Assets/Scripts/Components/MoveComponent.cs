@@ -5,15 +5,15 @@ namespace Components
     public sealed class MoveComponent : MonoBehaviour
     {
         [SerializeField]
-        private new Rigidbody2D rigidbody2D;
+        private new Rigidbody2D Rigidbody2D;
 
         [SerializeField]
-        private float speed = 5.0f;
+        private float Speed = 5.0f;
         
         public void MoveByRigidbodyVelocity(Vector2 vector)
         {
-            var nextPosition = rigidbody2D.position + vector * speed;
-            rigidbody2D.MovePosition(nextPosition);
+            var nextPosition = Rigidbody2D.position + vector * Speed;
+            Rigidbody2D.MovePosition(nextPosition);
         }
     }
 }
