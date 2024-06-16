@@ -4,22 +4,22 @@ namespace Level
 {
     public sealed class LevelBounds : MonoBehaviour
     {
-        [SerializeField] private Transform leftBorder;
+        [SerializeField] private Transform LeftBorder;
 
-        [SerializeField] private Transform rightBorder;
+        [SerializeField] private Transform RightBorder;
 
-        [SerializeField] private Transform downBorder;
+        [SerializeField] private Transform DownBorder;
 
-        [SerializeField] private Transform topBorder;
+        [SerializeField] private Transform TopBorder;
 
         public bool InBounds(Vector3 position)
         {
             var positionX = position.x;
             var positionY = position.y;
-            return positionX > leftBorder.position.x
-                   && positionX < rightBorder.position.x
-                   && positionY > downBorder.position.y
-                   && positionY < topBorder.position.y;
+            return positionX > LeftBorder.position.x
+                   && positionX < RightBorder.position.x
+                   && positionY > DownBorder.position.y
+                   && positionY < TopBorder.position.y;
         }
     }
 }

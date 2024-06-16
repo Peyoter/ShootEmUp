@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using Level;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Bullets
 {
-    public sealed class BulletSystem : MonoBehaviour
+    public sealed class BulletPuller : MonoBehaviour
     {
         [SerializeField] private int InitialCount = 50;
         [SerializeField] private Transform Container;
@@ -41,7 +40,7 @@ namespace Bullets
             }
         }
 
-        public void FlyBulletByArgs(Args args)
+        public void CreateBullets(Args args)
         {
             if (_mBulletPool.TryDequeue(out var bullet))
             {

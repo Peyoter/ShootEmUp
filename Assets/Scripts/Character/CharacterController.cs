@@ -8,7 +8,7 @@ namespace Character
     {
         [SerializeField] private GameObject Character;
         [SerializeField] private GameManager.GameManager GameManager;
-        [SerializeField] private BulletSystem BulletSystem;
+        [SerializeField] private BulletPuller BulletPuller;
         [SerializeField] private BulletConfig BulletConfig;
 
         public bool FireRequired;
@@ -37,10 +37,10 @@ namespace Character
         private void OnFlyBullet()
         {
             var weapon = Character.GetComponent<WeaponComponent>();
-            BulletSystem.FlyBulletByArgs(new BulletSystem.Args
+            BulletPuller.CreateBullets(new BulletPuller.Args
             {
                 IsPlayer = true,
-                PhysicsLayer = (int)BulletConfig.PhysicsLayer,
+                PhysicsLayer = (int)BulletConfig.PhysicsLayerEnum,
                 Color = BulletConfig.Color,
                 Damage = BulletConfig.Damage,
                 Position = weapon.Position,

@@ -1,6 +1,6 @@
 namespace Common
 {
-    public enum PhysicsLayer
+    public enum PhysicsLayerEnum
     {
         CHARACTER = 10,
         ENEMY = 11,

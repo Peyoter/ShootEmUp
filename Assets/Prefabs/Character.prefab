@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce164c84a74a425f8d2e82764aef9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirePoint: {fileID: 809540891661548872}
+  FirePoint: {fileID: 3926786963072264220}
 --- !u!114 &3926786964091724597
 MonoBehaviour:
   m_ObjectHideFlags: 0

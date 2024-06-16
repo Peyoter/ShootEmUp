@@ -12,7 +12,7 @@ namespace Enemy
     {
         [SerializeField] private EnemyPool EnemyPool;
 
-        [SerializeField] private BulletSystem BulletSystem;
+        [SerializeField] private BulletPuller BulletPuller;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
 
@@ -46,10 +46,10 @@ namespace Enemy
 
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
-            BulletSystem.FlyBulletByArgs(new BulletSystem.Args
+            BulletPuller.CreateBullets(new BulletPuller.Args
             {
                 IsPlayer = false,
-                PhysicsLayer = (int)PhysicsLayer.ENEMY,
+                PhysicsLayer = (int)PhysicsLayerEnum.ENEMY_BULLET,
                 Color = Color.red,
                 Damage = 1,
                 Position = position,
