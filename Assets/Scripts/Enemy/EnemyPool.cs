@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using Bullets;
+using Components;
 using Enemy.Agents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -17,6 +20,8 @@ namespace Enemy
         [SerializeField] private GameObject EnemyPref;
 
         private readonly Queue<GameObject> _enemyPool = new();
+
+        [SerializeField] private BulletFactory BulletFactory;
 
         private void Awake()
         {
@@ -39,6 +44,7 @@ namespace Enemy
             var spawnPosition = EnemyPositions.GetRandomSpawnPosition();
             enemy.transform.position = spawnPosition.position;
             var attackPosition = EnemyPositions.GetRandomAttackPosition();
+            enemy.GetComponent<ShootComponent>();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
             enemy.GetComponent<EnemyAttackAgent>().SetTarget(Character);
             return enemy;

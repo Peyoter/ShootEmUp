@@ -1,24 +1,24 @@
-﻿using System;
-using Bullets;
+﻿using Character;
 using UnityEngine;
 
 namespace Components
 {
     public class ShootComponent : MonoBehaviour
     {
-        [SerializeField] private BulletFactory BulletFactory;
 
         private bool _canShoot;
         private WeaponComponent _weaponComponent;
+        private CharacterManager _characterManager;
 
         private void Awake()
         {
             _weaponComponent = GetComponent<WeaponComponent>();
+            _characterManager = GetComponent<CharacterManager>();
         }
 
         private void Shoot()
         {
-            BulletFactory.CreateUserBullet(_weaponComponent.Position, _weaponComponent.GetWeaponDirection());
+            _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position, _weaponComponent.GetWeaponDirection());
         }
 
         private void FixedUpdate()

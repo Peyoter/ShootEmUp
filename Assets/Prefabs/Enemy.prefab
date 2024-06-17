@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8186052948131603766}
   - component: {fileID: 6896809305229427933}
   - component: {fileID: 5733164545697311662}
+  - component: {fileID: 3127802246555892564}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -170,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 3470145497817149085}
-  BulletFactory: {fileID: 0}
 --- !u!114 &8186052948131603766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +211,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c3485056624d0aa8eedde4ecce017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3127802246555892564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fc1744cd44416c8b6e5758a37d335f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletFactory: {fileID: 0}
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0

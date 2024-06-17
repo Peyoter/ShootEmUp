@@ -10,9 +10,16 @@ namespace Enemy
     public sealed class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemyPool EnemyPool;
-        [SerializeField] private BulletFactory BulletFactory;
+        [SerializeField] private BulletPool BulletPool;
+        [SerializeField] private BulletConfig BulletConfig;
+        private BulletFactory _bulletFactory;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
+
+        private void Awake()
+        {
+            _bulletFactory = new BulletFactory(BulletConfig, BulletPool);
+        }
 
         private IEnumerator Start()
         {
@@ -44,7 +51,7 @@ namespace Enemy
 
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
-            BulletFactory.CreateEnemyBullet(position, direction);
+            _bulletFactory.CreateBullet(position, direction);
         }
     }
 }
