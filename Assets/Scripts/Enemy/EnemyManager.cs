@@ -12,8 +12,7 @@ namespace Enemy
     public sealed class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemyPool EnemyPool;
-
-        [FormerlySerializedAs("BulletPuller")] [SerializeField] private BulletPool BulletPool;
+        [SerializeField] private BulletFactory BulletFactory;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
 
@@ -44,18 +43,10 @@ namespace Enemy
                 EnemyPool.UnspawnEnemy(enemy);
             }
         }
-
-        // Todo FireManager
+        
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
-            BulletPool.CreateBullets(new BulletPool.Args
-            {
-                PhysicsLayer = (int)PhysicsLayerEnum.ENEMY_BULLET,
-                Color = Color.red,
-                Damage = 1,
-                Position = position,
-                Velocity = direction * 2.0f
-            });
+            BulletFactory.CreateEnemyBullet(position, direction);
         }
     }
 }

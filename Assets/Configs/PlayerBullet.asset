@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerBullet
   m_EditorClassIdentifier: 
   PhysicsLayerEnum: 14
-  Color: {r: 0.27735534, g: 0.9811321, b: 0, a: 0}
+  Color: {r: 0.27735534, g: 0.9811321, b: 0, a: 1}
   Damage: 100
-  Speed: 3
+  Speed: 30

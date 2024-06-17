@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Enemy.Agents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -15,7 +16,7 @@ namespace Enemy
 
         [Header("Pool")] [SerializeField] private Transform Container;
 
-        [SerializeField] private GameObject Prefab;
+        [SerializeField] private GameObject EnemyPref;
 
         private readonly Queue<GameObject> _enemyPool = new();
 
@@ -23,7 +24,7 @@ namespace Enemy
         {
             for (var i = 0; i < 7; i++)
             {
-                var enemy = Instantiate(Prefab, Container);
+                var enemy = Instantiate(EnemyPref, Container);
                 _enemyPool.Enqueue(enemy);
             }
         }

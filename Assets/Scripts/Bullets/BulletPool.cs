@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Components;
 using Level;
 using UnityEngine;
 
@@ -40,32 +41,13 @@ namespace Bullets
             }
         }
 
-        public void CreateBullets(Args args)
+        // @Todo Куда перенести пока вопрос?
+        public void OnBulletCollision(Bullet bullet, Collision2D collision)
         {
-            if (_mBulletPool.TryDequeue(out var bullet))
+            if (collision.gameObject.TryGetComponent(out HitPointsComponent hitPoints))
             {
-                bullet.transform.SetParent(WorldTransform);
+                hitPoints.TakeDamage(bullet.Damage);
             }
-            else
-            {
-                bullet = Instantiate(Prefab, WorldTransform);
-            }
-
-            bullet.SetPosition(args.Position);
-            bullet.SetColor(args.Color);
-            bullet.SetPhysicsLayer(args.PhysicsLayer);
-            bullet.Damage = args.Damage;
-            bullet.SetVelocity(args.Velocity);
-
-            if (_mActiveBullets.Add(bullet))
-            {
-                bullet.OnCollisionEntered += OnBulletCollision;
-            }
-        }
-
-        private void OnBulletCollision(Bullet bullet, Collision2D collision)
-        {
-            BulletUtils.DealDamage(bullet, collision.gameObject);
             RemoveBullet(bullet);
         }
 
@@ -79,13 +61,23 @@ namespace Bullets
             }
         }
 
-        public struct Args
+        public Bullet GetBullet()
         {
-            public Vector2 Position;
-            public Vector2 Velocity;
-            public Color Color;
-            public int PhysicsLayer;
-            public int Damage;
+            if (_mBulletPool.TryDequeue(out var bullet))
+            {
+                bullet.transform.SetParent(WorldTransform);
+            }
+            else
+            {
+                bullet = Instantiate(Prefab, WorldTransform);
+            }
+
+            return bullet;
+        }
+
+        public bool AddActiveBullet(Bullet bullet)
+        {
+            return _mActiveBullets.Add(bullet);
         }
     }
 }

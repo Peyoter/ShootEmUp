@@ -16,9 +16,10 @@ namespace Input
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
-                CharacterController.FireRequired = true;
+                var weapon = Character.GetComponent<WeaponComponent>();
+                weapon.Shoot();
             }
-
+            
             if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
             {
                 HorizontalDirection = -1;
