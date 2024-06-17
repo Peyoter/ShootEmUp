@@ -310,9 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da07b3da43c8490982a7e81a92244624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserBullets: {fileID: 11400000, guid: 7138ae5d32d814e0ca50c616c65ea105, type: 2}
-  EnemyBullet: {fileID: 11400000, guid: e6138d88cac8e1548859d1f0c5e392bb, type: 2}
-  BulletPool: {fileID: 363245577}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 4414282821800802397}
-  CharacterController: {fileID: 4414282821800802406}
+  CharacterManager: {fileID: 4414282821800802406}
 --- !u!850595691 &1263964384
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1143,6 +1140,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1683128698}
     m_Modifications:
+    - target: {fileID: -1382422021014326499, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
+        type: 3}
+      propertyPath: BulletPool
+      value: 
+      objectReference: {fileID: 363245577}
     - target: {fileID: 809540891661548872, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
         type: 3}
       propertyPath: m_RootOrder
@@ -1379,8 +1381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 3951702117947426123}
-  BulletConfig: {fileID: 11400000, guid: 7138ae5d32d814e0ca50c616c65ea105, type: 2}
-  BulletPool: {fileID: 363245577}
 --- !u!114 &4414282821800802408
 MonoBehaviour:
   m_ObjectHideFlags: 0

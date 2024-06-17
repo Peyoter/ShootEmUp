@@ -1,5 +1,3 @@
-using System;
-using Bullets;
 using Components;
 using UnityEngine;
 
@@ -10,14 +8,7 @@ namespace Character
         
         [SerializeField] private GameManager.GameManager GameManager;
         
-        [SerializeField] private BulletConfig BulletConfig;
-        [SerializeField] private BulletPool  BulletPool;
-        public BulletFactory BulletFactory;
-
-        private void Awake()
-        {
-            BulletFactory = new BulletFactory(BulletConfig, BulletPool);
-        }
+     
 
         private void OnEnable()
         {

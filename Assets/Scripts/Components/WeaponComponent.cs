@@ -1,4 +1,3 @@
-using Bullets;
 using UnityEngine;
 
 namespace Components

@@ -1,5 +1,4 @@
-﻿using Character;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Components
 {
@@ -8,26 +7,32 @@ namespace Components
 
         private bool _canShoot;
         private WeaponComponent _weaponComponent;
-        private CharacterManager _characterManager;
+        private ComponentManager _characterManager;
 
         private void Awake()
         {
             _weaponComponent = GetComponent<WeaponComponent>();
-            _characterManager = GetComponent<CharacterManager>();
+            _characterManager = GetComponent<ComponentManager>();
         }
 
-        private void Shoot()
+        private void ShootByWeaponDirection()
         {
             _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position, _weaponComponent.GetWeaponDirection());
+        }
+        
+        public void ShootToTarget(Vector2 targetPosition)
+        {
+            var startPosition = _weaponComponent.Position;
+            var vector = targetPosition - startPosition;
+            var direction = vector.normalized;
+            _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position, direction);
         }
 
         private void FixedUpdate()
         {
-            if (_canShoot)
-            {
-                Shoot();
-                _canShoot = false;
-            }
+            if (!_canShoot) return;
+            ShootByWeaponDirection();
+            _canShoot = false;
         }
 
         public void Fire()

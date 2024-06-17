@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6896809305229427933}
   - component: {fileID: 5733164545697311662}
   - component: {fileID: 3127802246555892564}
+  - component: {fileID: -6888241778105857607}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba7965842e74a9f89ba3aa66d61da46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponComponent: {fileID: 5568771391735819374}
+  ShootComponent: {fileID: 3127802246555892564}
   MoveAgent: {fileID: 8186052948131603766}
   Countdown: 3
 --- !u!114 &5733164545697311662
@@ -223,7 +224,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fc1744cd44416c8b6e5758a37d335f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletFactory: {fileID: 0}
+--- !u!114 &-6888241778105857607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b6e1436b5f4e528af6de1a119dd74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletConfig: {fileID: 11400000, guid: e6138d88cac8e1548859d1f0c5e392bb, type: 2}
+  BulletPool: {fileID: 0}
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0

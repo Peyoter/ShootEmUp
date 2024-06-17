@@ -5,11 +5,8 @@ namespace Enemy.Agents
 {
     public sealed class EnemyAttackAgent : MonoBehaviour
     {
-        public delegate void FireHandler(GameObject enemy, Vector2 position, Vector2 direction);
 
-        public event FireHandler OnFire;
-
-        [SerializeField] private WeaponComponent WeaponComponent;
+        [SerializeField] private ShootComponent ShootComponent;
         [SerializeField] private EnemyMoveAgent MoveAgent;
         [SerializeField] private float Countdown;
 
@@ -46,14 +43,9 @@ namespace Enemy.Agents
             }
         }
 
-        
-        // Убрать в FireComponent
         private void Fire()
         {
-            var startPosition = WeaponComponent.Position;
-            var vector = (Vector2)_target.transform.position - startPosition;
-            var direction = vector.normalized;
-            OnFire?.Invoke(gameObject, startPosition, direction);
+            ShootComponent.ShootToTarget(_target.transform.position);
         }
     }
 }
