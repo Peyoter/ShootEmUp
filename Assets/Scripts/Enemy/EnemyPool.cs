@@ -47,7 +47,7 @@ namespace Enemy
             componentManager.Init();
             enemy.GetComponent<ShootComponent>();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
-            enemy.GetComponent<EnemyAttackAgent>().SetTarget(Character);
+            enemy.GetComponent<TargetComponent>().SetTarget(Character);
             
             return enemy;
         }

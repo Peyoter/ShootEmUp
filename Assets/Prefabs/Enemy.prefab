@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 5733164545697311662}
   - component: {fileID: 3127802246555892564}
   - component: {fileID: -6888241778105857607}
+  - component: {fileID: -7511980917653800115}
+  - component: {fileID: -5792512677198972536}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -198,7 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootComponent: {fileID: 3127802246555892564}
-  MoveAgent: {fileID: 8186052948131603766}
   Countdown: 3
 --- !u!114 &5733164545697311662
 MonoBehaviour:
@@ -238,6 +239,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletConfig: {fileID: 11400000, guid: e6138d88cac8e1548859d1f0c5e392bb, type: 2}
   BulletPool: {fileID: 0}
+--- !u!114 &-7511980917653800115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd6afdaf9084f7c8b09cbd838054aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveAgent: {fileID: 8186052948131603766}
+  EnemyAttackAgent: {fileID: 6896809305229427933}
+--- !u!114 &-5792512677198972536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208c2e76195e4619ac1decdce83ad38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0
