@@ -1,4 +1,5 @@
-﻿using Bullets;
+﻿using System;
+using Bullets;
 using UnityEngine;
 
 namespace Components
@@ -8,24 +9,30 @@ namespace Components
         [SerializeField] private BulletFactory BulletFactory;
 
         private bool _canShoot;
+        private WeaponComponent _weaponComponent;
 
-        private void Fire()
+        private void Awake()
         {
-            // BulletFactory.CreateUserBullet(Position, GetWeaponDirection());
+            _weaponComponent = GetComponent<WeaponComponent>();
+        }
+
+        private void Shoot()
+        {
+            BulletFactory.CreateUserBullet(_weaponComponent.Position, _weaponComponent.GetWeaponDirection());
         }
 
         private void FixedUpdate()
         {
-            // if (_canShoot)
-            // {
-            //     Fire();
-            //     _canShoot = false;
-            // }
+            if (_canShoot)
+            {
+                Shoot();
+                _canShoot = false;
+            }
         }
 
-        public void Shoot()
+        public void Fire()
         {
-            // _canShoot = true;
+            _canShoot = true;
         }
     }
 }

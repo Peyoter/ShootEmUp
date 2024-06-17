@@ -16,8 +16,8 @@ namespace Input
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
-                var weapon = Character.GetComponent<WeaponComponent>();
-                weapon.Shoot();
+                var shoot = Character.GetComponent<ShootComponent>();
+                shoot.Fire();
             }
 
             if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
