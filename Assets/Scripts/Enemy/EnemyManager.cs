@@ -5,6 +5,7 @@ using Common;
 using Components;
 using Enemy.Agents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -12,7 +13,7 @@ namespace Enemy
     {
         [SerializeField] private EnemyPool EnemyPool;
 
-        [SerializeField] private BulletPuller BulletPuller;
+        [FormerlySerializedAs("BulletPuller")] [SerializeField] private BulletPool BulletPool;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
 
@@ -44,11 +45,11 @@ namespace Enemy
             }
         }
 
+        // Todo FireManager
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
-            BulletPuller.CreateBullets(new BulletPuller.Args
+            BulletPool.CreateBullets(new BulletPool.Args
             {
-                IsPlayer = false,
                 PhysicsLayer = (int)PhysicsLayerEnum.ENEMY_BULLET,
                 Color = Color.red,
                 Damage = 1,

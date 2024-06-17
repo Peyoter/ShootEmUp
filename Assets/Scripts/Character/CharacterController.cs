@@ -1,6 +1,7 @@
 using Bullets;
 using Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Character
 {
@@ -8,7 +9,7 @@ namespace Character
     {
         [SerializeField] private GameObject Character;
         [SerializeField] private GameManager.GameManager GameManager;
-        [SerializeField] private BulletPuller BulletPuller;
+        [FormerlySerializedAs("BulletPuller")] [SerializeField] private BulletPool BulletPool;
         [SerializeField] private BulletConfig BulletConfig;
 
         public bool FireRequired;
@@ -37,9 +38,8 @@ namespace Character
         private void OnFlyBullet()
         {
             var weapon = Character.GetComponent<WeaponComponent>();
-            BulletPuller.CreateBullets(new BulletPuller.Args
+            BulletPool.CreateBullets(new BulletPool.Args
             {
-                IsPlayer = true,
                 PhysicsLayer = (int)BulletConfig.PhysicsLayerEnum,
                 Color = BulletConfig.Color,
                 Damage = BulletConfig.Damage,

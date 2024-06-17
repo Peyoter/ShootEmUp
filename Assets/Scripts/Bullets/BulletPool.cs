@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Bullets
 {
-    public sealed class BulletPuller : MonoBehaviour
+    public sealed class BulletPool : MonoBehaviour
     {
         [SerializeField] private int InitialCount = 50;
         [SerializeField] private Transform Container;
@@ -55,7 +55,6 @@ namespace Bullets
             bullet.SetColor(args.Color);
             bullet.SetPhysicsLayer(args.PhysicsLayer);
             bullet.Damage = args.Damage;
-            bullet.IsPlayer = args.IsPlayer;
             bullet.SetVelocity(args.Velocity);
 
             if (_mActiveBullets.Add(bullet))
@@ -87,7 +86,6 @@ namespace Bullets
             public Color Color;
             public int PhysicsLayer;
             public int Damage;
-            public bool IsPlayer;
         }
     }
 }

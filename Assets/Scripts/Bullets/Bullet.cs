@@ -7,7 +7,6 @@ namespace Bullets
     {
         public event Action<Bullet, Collision2D> OnCollisionEntered;
 
-        [NonSerialized] public bool IsPlayer;
         [NonSerialized] public int Damage;
 
         [SerializeField] private new Rigidbody2D Rigidbody2D;
