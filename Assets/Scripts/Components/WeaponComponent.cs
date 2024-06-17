@@ -12,18 +12,19 @@ namespace Components
 
         [SerializeField] private Transform FirePoint;
         [SerializeField] private BulletFactory BulletFactory;
-        
+
         private bool _canShoot;
 
         public Vector2 GetWeaponDirection()
         {
             return Rotation * Vector3.up;
         }
+
         public void Fire()
         {
             BulletFactory.CreateUserBullet(Position, GetWeaponDirection());
         }
-        
+
         private void FixedUpdate()
         {
             if (_canShoot)
@@ -37,7 +38,5 @@ namespace Components
         {
             _canShoot = true;
         }
-
-
     }
 }

@@ -19,7 +19,7 @@ namespace Input
                 var weapon = Character.GetComponent<WeaponComponent>();
                 weapon.Shoot();
             }
-            
+
             if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
             {
                 HorizontalDirection = -1;

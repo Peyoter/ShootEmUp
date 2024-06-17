@@ -7,7 +7,7 @@ namespace Bullets
     {
         [SerializeField] private BulletConfig Config;
         [SerializeField] private BulletPool BulletPool;
-        
+
         public void CreateEnemyBullet(Vector2 position, Vector2 direction)
         {
             // Перенести в 
@@ -32,10 +32,9 @@ namespace Bullets
                 Velocity = direction * Config.Speed
             });
         }
-        
+
         public void SetupBullet(Args args)
         {
-
             var bullet = BulletPool.GetBullet();
             bullet.SetPosition(args.Position);
             bullet.SetColor(args.Color);
@@ -48,7 +47,7 @@ namespace Bullets
                 bullet.OnCollisionEntered += BulletPool.OnBulletCollision;
             }
         }
-        
+
         public struct Args
         {
             public Vector2 Position;

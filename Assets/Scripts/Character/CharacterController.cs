@@ -9,7 +9,7 @@ namespace Character
     {
         [SerializeField] private GameObject Character;
         [SerializeField] private GameManager.GameManager GameManager;
-     
+
         private void OnEnable()
         {
             Character.GetComponent<HitPointsComponent>().HpEmpty += OnCharacterDeath;
@@ -21,6 +21,5 @@ namespace Character
         }
 
         private void OnCharacterDeath(GameObject _) => GameManager.FinishGame();
-  
     }
 }

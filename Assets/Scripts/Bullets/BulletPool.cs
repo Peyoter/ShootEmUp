@@ -48,6 +48,7 @@ namespace Bullets
             {
                 hitPoints.TakeDamage(bullet.Damage);
             }
+
             RemoveBullet(bullet);
         }
 

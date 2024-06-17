@@ -43,7 +43,7 @@ namespace Enemy
                 EnemyPool.UnspawnEnemy(enemy);
             }
         }
-        
+
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
             BulletFactory.CreateEnemyBullet(position, direction);
