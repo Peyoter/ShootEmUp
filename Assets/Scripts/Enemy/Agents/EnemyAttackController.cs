@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy.Agents
 {
-    public sealed class EnemyAttackAgent : MonoBehaviour
+    public sealed class EnemyAttackController : MonoBehaviour
     {
 
         [SerializeField] private ShootComponent ShootComponent;

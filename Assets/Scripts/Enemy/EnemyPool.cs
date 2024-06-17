@@ -46,7 +46,7 @@ namespace Enemy
             componentManager.SetBulletPool(bulletPool);
             componentManager.Init();
             enemy.GetComponent<ShootComponent>();
-            enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
+            enemy.GetComponent<EnemyMoveController>().SetDestination(attackPosition.position);
             enemy.GetComponent<TargetComponent>().SetTarget(Character);
             
             return enemy;

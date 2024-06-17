@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy.Agents
 {
-    public sealed class EnemyMoveAgent : MonoBehaviour
+    public sealed class EnemyMoveController : MonoBehaviour
     {
         public bool HasReachedGoal { get; private set; }
 
