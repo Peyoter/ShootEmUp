@@ -8,17 +8,17 @@ namespace Enemy
 
         [SerializeField] private Transform[] AttackPositions;
 
-        public Transform RandomSpawnPosition()
+        public Transform GetRandomSpawnPosition()
         {
-            return RandomTransform(SpawnPositions);
+            return GetRandomTransform(SpawnPositions);
         }
 
-        public Transform RandomAttackPosition()
+        public Transform GetRandomAttackPosition()
         {
-            return RandomTransform(AttackPositions);
+            return GetRandomTransform(AttackPositions);
         }
 
-        private Transform RandomTransform(Transform[] transforms)
+        private Transform GetRandomTransform(Transform[] transforms)
         {
             var index = Random.Range(0, transforms.Length);
             return transforms[index];

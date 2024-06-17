@@ -1,21 +1,24 @@
 ﻿using Common;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Bullets
 {
     public class BulletFactory : MonoBehaviour
     {
-        [SerializeField] private BulletConfig Config;
+        // Если бы был бы zenject я бы фабричные методы разместил бы в самих ScriptbleObject'aх
+        
+        [SerializeField] private BulletConfig UserBullets;
+        [SerializeField] private BulletConfig EnemyBullet;
         [SerializeField] private BulletPool BulletPool;
 
         public void CreateEnemyBullet(Vector2 position, Vector2 direction)
         {
-            // Перенести в 
             SetupBullet(new Args
             {
-                PhysicsLayer = (int)PhysicsLayerEnum.ENEMY_BULLET,
-                Color = Color.red,
-                Damage = 1,
+                PhysicsLayer = (int)EnemyBullet.PhysicsLayerEnum,
+                Color = EnemyBullet.Color,
+                Damage = EnemyBullet.Damage,
                 Position = position,
                 Velocity = direction * 2.0f
             });
@@ -25,15 +28,15 @@ namespace Bullets
         {
             SetupBullet(new Args
             {
-                PhysicsLayer = (int)Config.PhysicsLayerEnum,
-                Color = Config.Color,
-                Damage = Config.Damage,
+                PhysicsLayer = (int)UserBullets.PhysicsLayerEnum,
+                Color = UserBullets.Color,
+                Damage = UserBullets.Damage,
                 Position = position,
-                Velocity = direction * Config.Speed
+                Velocity = direction * UserBullets.Speed
             });
         }
 
-        public void SetupBullet(Args args)
+        private void SetupBullet(Args args)
         {
             var bullet = BulletPool.GetBullet();
             bullet.SetPosition(args.Position);
@@ -48,7 +51,7 @@ namespace Bullets
             }
         }
 
-        public struct Args
+        private struct Args
         {
             public Vector2 Position;
             public Vector2 Velocity;

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Enemy.Agents;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -12,7 +11,6 @@ namespace Enemy
         [SerializeField] private GameObject Character;
 
         [SerializeField] private Transform WorldTransform;
-
 
         [Header("Pool")] [SerializeField] private Transform Container;
 
@@ -38,12 +36,10 @@ namespace Enemy
 
             enemy.transform.SetParent(WorldTransform);
 
-            var spawnPosition = EnemyPositions.RandomSpawnPosition();
+            var spawnPosition = EnemyPositions.GetRandomSpawnPosition();
             enemy.transform.position = spawnPosition.position;
-
-            var attackPosition = EnemyPositions.RandomAttackPosition();
+            var attackPosition = EnemyPositions.GetRandomAttackPosition();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
-
             enemy.GetComponent<EnemyAttackAgent>().SetTarget(Character);
             return enemy;
         }

@@ -1,6 +1,5 @@
 using Bullets;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Components
 {
@@ -8,19 +7,19 @@ namespace Components
     {
         public Vector2 Position => FirePoint.position;
 
-        public Quaternion Rotation => FirePoint.rotation;
+        private Quaternion Rotation => FirePoint.rotation;
 
         [SerializeField] private Transform FirePoint;
         [SerializeField] private BulletFactory BulletFactory;
 
         private bool _canShoot;
 
-        public Vector2 GetWeaponDirection()
+        private Vector2 GetWeaponDirection()
         {
             return Rotation * Vector3.up;
         }
 
-        public void Fire()
+        private void Fire()
         {
             BulletFactory.CreateUserBullet(Position, GetWeaponDirection());
         }

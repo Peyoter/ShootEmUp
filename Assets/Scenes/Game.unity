@@ -310,7 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da07b3da43c8490982a7e81a92244624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 7138ae5d32d814e0ca50c616c65ea105, type: 2}
+  UserBullets: {fileID: 11400000, guid: 7138ae5d32d814e0ca50c616c65ea105, type: 2}
+  EnemyBullet: {fileID: 11400000, guid: e6138d88cac8e1548859d1f0c5e392bb, type: 2}
   BulletPool: {fileID: 363245577}
 --- !u!1 &519420028
 GameObject:
