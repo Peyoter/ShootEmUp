@@ -1,17 +1,22 @@
+using System;
 using Character;
 using Components;
 using UnityEngine;
 
 namespace Input
 {
+    public static class Move {
+        public const float Left = -1.0f;
+        public const float Right = 1.0f;
+        public const float Stop = 0;
+    }
+        
     public sealed class InputManager : MonoBehaviour
     {
         public float HorizontalDirection { get; private set; }
 
         [SerializeField] private GameObject Character;
-
-        [SerializeField] private CharacterManager CharacterManager;
-
+        
         private void Update()
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
@@ -22,15 +27,15 @@ namespace Input
 
             if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
             {
-                HorizontalDirection = -1;
+                HorizontalDirection = Move.Left;
             }
             else if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
             {
-                HorizontalDirection = 1;
+                HorizontalDirection = Move.Right;
             }
             else
             {
-                HorizontalDirection = 0;
+                HorizontalDirection = Move.Stop;
             }
         }
 
