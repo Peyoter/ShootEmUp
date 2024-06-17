@@ -4,7 +4,6 @@ namespace Components
 {
     public class ShootComponent : MonoBehaviour
     {
-
         private bool _canShoot;
         private WeaponComponent _weaponComponent;
         private ComponentManager _characterManager;
@@ -17,9 +16,10 @@ namespace Components
 
         private void ShootByWeaponDirection()
         {
-            _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position, _weaponComponent.GetWeaponDirection());
+            _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position,
+                _weaponComponent.GetWeaponDirection());
         }
-        
+
         public void ShootToTarget(Vector2 targetPosition)
         {
             var startPosition = _weaponComponent.Position;

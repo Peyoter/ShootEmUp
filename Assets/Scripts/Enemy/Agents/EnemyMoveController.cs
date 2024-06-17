@@ -34,6 +34,5 @@ namespace Enemy.Agents
             var direction = vector.normalized * Time.fixedDeltaTime;
             MoveComponent.MoveByRigidbodyVelocity(direction);
         }
-        
     }
 }

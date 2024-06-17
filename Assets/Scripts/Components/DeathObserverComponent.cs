@@ -5,7 +5,6 @@ namespace Components
 {
     public class DeathObserverComponent : MonoBehaviour
     {
-        
         public event Action<GameObject> OnDeath;
 
         private void OnEnable()
@@ -22,6 +21,5 @@ namespace Components
         {
             OnDeath?.Invoke(o);
         }
-
     }
 }

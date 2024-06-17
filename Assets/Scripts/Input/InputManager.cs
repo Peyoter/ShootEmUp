@@ -1,7 +1,6 @@
 using Character;
 using Components;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Input
 {
@@ -11,7 +10,7 @@ namespace Input
 
         [SerializeField] private GameObject Character;
 
-        [FormerlySerializedAs("CharacterController")] [SerializeField] private CharacterManager CharacterManager;
+        [SerializeField] private CharacterManager CharacterManager;
 
         private void Update()
         {

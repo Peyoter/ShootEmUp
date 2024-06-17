@@ -5,13 +5,12 @@ using UnityEngine;
 
 namespace Enemy
 {
-    
     public sealed class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemyPool EnemyPool;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
-        
+
 
         private IEnumerator Start()
         {

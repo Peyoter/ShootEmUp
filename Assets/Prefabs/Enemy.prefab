@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd6afdaf9084f7c8b09cbd838054aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveAgent: {fileID: 8186052948131603766}
-  EnemyAttackAgent: {fileID: 6896809305229427933}
+  MoveController: {fileID: 8186052948131603766}
+  EnemyAttackController: {fileID: 6896809305229427933}
 --- !u!114 &-5792512677198972536
 MonoBehaviour:
   m_ObjectHideFlags: 0

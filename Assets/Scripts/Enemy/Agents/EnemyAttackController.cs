@@ -6,7 +6,6 @@ namespace Enemy.Agents
 {
     public sealed class EnemyAttackController : MonoBehaviour
     {
-
         [SerializeField] private ShootComponent ShootComponent;
         [SerializeField] private float Countdown;
 
@@ -36,7 +35,7 @@ namespace Enemy.Agents
             var targetPosition = GetComponent<TargetComponent>().GetTargetPosition();
             ShootComponent.ShootToTarget(targetPosition);
         }
-        
+
         public void AppendCondition(Func<bool> condition)
         {
             _compositeCondition.AddCondition(condition);

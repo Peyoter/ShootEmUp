@@ -6,7 +6,7 @@ namespace Components
     public class ComponentManager : MonoBehaviour
     {
         [SerializeField] private BulletConfig BulletConfig;
-        [SerializeField] public BulletPool  BulletPool;
+        [SerializeField] public BulletPool BulletPool;
         public BulletFactory BulletFactory;
 
         private void Awake()
@@ -18,7 +18,7 @@ namespace Components
         {
             BulletPool = bulletPool;
         }
-        
+
         public void Init()
         {
             BulletFactory = new BulletFactory(BulletConfig, BulletPool);

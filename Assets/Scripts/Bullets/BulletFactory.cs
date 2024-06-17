@@ -4,17 +4,15 @@ namespace Bullets
 {
     public class BulletFactory
     {
-     
-
         private BulletPool _bulletPool;
         private BulletConfig _bulletConfig;
-        
+
         public BulletFactory(BulletConfig bulletConfig, BulletPool bulletPool)
         {
             _bulletConfig = bulletConfig;
             _bulletPool = bulletPool;
         }
-        
+
         public void CreateBullet(Vector2 position, Vector2 direction)
         {
             SetupBullet(new Args

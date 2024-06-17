@@ -5,10 +5,8 @@ namespace Character
 {
     public sealed class CharacterManager : MonoBehaviour
     {
-        
         [SerializeField] private GameManager.GameManager GameManager;
-        
-     
+
 
         private void OnEnable()
         {

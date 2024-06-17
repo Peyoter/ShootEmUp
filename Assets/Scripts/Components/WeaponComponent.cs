@@ -9,12 +9,11 @@ namespace Components
         private Quaternion Rotation => FirePoint.rotation;
 
         [SerializeField] private Transform FirePoint;
-        
+
 
         public Vector2 GetWeaponDirection()
         {
             return Rotation * Vector3.up;
         }
-        
     }
 }

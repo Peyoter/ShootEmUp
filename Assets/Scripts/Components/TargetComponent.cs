@@ -10,8 +10,8 @@ namespace Components
         {
             _target = target;
         }
-        
-        public Vector2  GetTargetPosition()
+
+        public Vector2 GetTargetPosition()
         {
             return _target.transform.position;
         }
@@ -19,6 +19,6 @@ namespace Components
         public bool IsTargetLive()
         {
             return GetComponent<HitPointsComponent>().IsHitPointCountNotNull();
-        } 
+        }
     }
 }

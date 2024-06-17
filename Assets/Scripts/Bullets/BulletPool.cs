@@ -39,7 +39,7 @@ namespace Bullets
                 }
             }
         }
-        
+
         public void OnBulletCollision(Bullet bullet)
         {
             RemoveBullet(bullet);
