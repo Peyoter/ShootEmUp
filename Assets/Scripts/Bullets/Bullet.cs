@@ -5,7 +5,7 @@ namespace Bullets
 {
     public sealed class Bullet : MonoBehaviour
     {
-        public event Action<Bullet, Collision2D> OnCollisionEntered;
+        public event Action<Bullet> OnCollisionEntered;
 
         [NonSerialized] public int Damage;
 
@@ -13,9 +13,9 @@ namespace Bullets
 
         [SerializeField] private SpriteRenderer SpriteRenderer;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        public void OnCollisionEnter2D()
         {
-            OnCollisionEntered?.Invoke(this, collision);
+            OnCollisionEntered?.Invoke(this);
         }
 
         public void SetVelocity(Vector2 velocity)

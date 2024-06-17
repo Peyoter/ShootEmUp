@@ -46,6 +46,8 @@ namespace Enemy.Agents
             }
         }
 
+        
+        // Убрать в FireComponent
         private void Fire()
         {
             var startPosition = WeaponComponent.Position;

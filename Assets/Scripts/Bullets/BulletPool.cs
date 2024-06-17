@@ -40,15 +40,9 @@ namespace Bullets
                 }
             }
         }
-
-        // @Todo Куда перенести пока вопрос?
-        public void OnBulletCollision(Bullet bullet, Collision2D collision)
+        
+        public void OnBulletCollision(Bullet bullet)
         {
-            if (collision.gameObject.TryGetComponent(out HitPointsComponent hitPoints))
-            {
-                hitPoints.TakeDamage(bullet.Damage);
-            }
-
             RemoveBullet(bullet);
         }
 
