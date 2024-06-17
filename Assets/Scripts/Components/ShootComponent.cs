@@ -16,16 +16,16 @@ namespace Components
 
         private void FixedUpdate()
         {
-            if (_canShoot)
-            {
-                Fire();
-                _canShoot = false;
-            }
+            // if (_canShoot)
+            // {
+            //     Fire();
+            //     _canShoot = false;
+            // }
         }
 
         public void Shoot()
         {
-            _canShoot = true;
+            // _canShoot = true;
         }
     }
 }
