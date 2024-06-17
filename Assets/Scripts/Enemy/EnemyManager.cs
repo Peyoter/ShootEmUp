@@ -10,13 +10,15 @@ namespace Enemy
         [SerializeField] private EnemyPool EnemyPool;
 
         private readonly HashSet<GameObject> _mActiveEnemies = new();
+        
+        [SerializeField] private int Cooldown = 1;
 
 
         private IEnumerator Start()
         {
             while (true)
             {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(Cooldown);
                 var enemy = EnemyPool.SpawnEnemy();
                 if (enemy != null)
                 {

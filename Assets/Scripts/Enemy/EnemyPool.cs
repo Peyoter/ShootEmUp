@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Components;
 using Enemy.Agents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -19,9 +20,11 @@ namespace Enemy
 
         private readonly Queue<GameObject> _enemyPool = new();
 
+        [SerializeField] private int  PoolInitialCount = 7;
+
         private void Awake()
         {
-            for (var i = 0; i < 7; i++)
+            for (var i = 0; i < PoolInitialCount; i++)
             {
                 var enemy = Instantiate(EnemyPref, Container);
                 _enemyPool.Enqueue(enemy);
