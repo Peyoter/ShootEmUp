@@ -2,10 +2,10 @@
 
 namespace Bullets
 {
-    public class BulletFactory
+    public sealed class BulletFactory
     {
-        private BulletPool _bulletPool;
-        private BulletConfig _bulletConfig;
+        private readonly BulletPool _bulletPool;
+        private readonly BulletConfig _bulletConfig;
 
         public BulletFactory(BulletConfig bulletConfig, BulletPool bulletPool)
         {
