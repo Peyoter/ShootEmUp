@@ -1,6 +1,8 @@
 using Components;
 using GameSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
+using GameManager;
 
 namespace Character
 {
