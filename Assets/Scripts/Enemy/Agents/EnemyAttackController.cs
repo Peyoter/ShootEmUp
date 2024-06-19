@@ -20,7 +20,7 @@ namespace Enemy.Agents
 
         private void FixedUpdate()
         {
-            if (_compositeCondition.IsTrue()) return;
+            if (!_compositeCondition.IsTrue()) return;
 
             _currentTime -= Time.fixedDeltaTime;
             if (_currentTime <= 0)
