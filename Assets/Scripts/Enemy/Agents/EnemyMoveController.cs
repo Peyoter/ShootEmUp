@@ -1,9 +1,10 @@
 using Components;
+using GameSystem;
 using UnityEngine;
 
 namespace Enemy.Agents
 {
-    public sealed class EnemyMoveController : MonoBehaviour
+    public sealed class EnemyMoveController : MonoBehaviour, IGameFixedUpdateListener
     {
         public bool HasReachedGoal { get; private set; }
 
@@ -11,13 +12,18 @@ namespace Enemy.Agents
 
         private Vector2 _destination;
 
+        private void Awake()
+        {
+            IGameListener.Register(this);
+        }
+
         public void SetDestination(Vector2 endPoint)
         {
             _destination = endPoint;
             HasReachedGoal = false;
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate(float fixedDeltaTime)
         {
             if (HasReachedGoal)
             {
@@ -31,7 +37,7 @@ namespace Enemy.Agents
                 return;
             }
 
-            var direction = vector.normalized * Time.fixedDeltaTime;
+            var direction = vector.normalized * fixedDeltaTime;
             MoveComponent.MoveByRigidbodyVelocity(direction);
         }
     }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Components;
 using Enemy.Agents;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -20,7 +19,7 @@ namespace Enemy
 
         private readonly Queue<GameObject> _enemyPool = new();
 
-        [SerializeField] private int  PoolInitialCount = 7;
+        [SerializeField] private int PoolInitialCount = 7;
 
         private void Awake()
         {

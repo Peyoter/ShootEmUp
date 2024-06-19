@@ -1,10 +1,11 @@
 using System;
 using Components;
+using GameSystem;
 using UnityEngine;
 
 namespace Enemy.Agents
 {
-    public sealed class EnemyAttackController : MonoBehaviour
+    public sealed class EnemyAttackController : MonoBehaviour, IGameFixedUpdateListener
     {
         [SerializeField] private ShootComponent ShootComponent;
         [SerializeField] private float Countdown;
@@ -18,11 +19,16 @@ namespace Enemy.Agents
             _currentTime = Countdown;
         }
 
-        private void FixedUpdate()
+        public void Awake()
+        {
+            IGameListener.Register(this);
+        }
+
+        public void OnFixedUpdate(float fixedDeltaTime)
         {
             if (_compositeCondition.IsTrue()) return;
 
-            _currentTime -= Time.fixedDeltaTime;
+            _currentTime -= fixedDeltaTime;
             if (_currentTime <= 0)
             {
                 Fire();
