@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using GameSystem;
+using UnityEngine;
 
 namespace Components
 {
-    public class ShootComponent : MonoBehaviour
+    public class ShootComponent : MonoBehaviour, IGameFixedUpdateListener
     {
         private bool _canShoot;
         private WeaponComponent _weaponComponent;
@@ -10,6 +11,7 @@ namespace Components
 
         private void Awake()
         {
+            IGameListener.Register(this);
             _weaponComponent = GetComponent<WeaponComponent>();
             _characterManager = GetComponent<ComponentManager>();
         }
@@ -28,7 +30,7 @@ namespace Components
             _characterManager.BulletFactory.CreateBullet(_weaponComponent.Position, direction);
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate(float timeDeltaTime)
         {
             if (!_canShoot) return;
             ShootByWeaponDirection();

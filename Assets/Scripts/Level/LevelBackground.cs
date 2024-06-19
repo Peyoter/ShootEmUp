@@ -1,9 +1,10 @@
 using System;
+using GameSystem;
 using UnityEngine;
 
 namespace Level
 {
-    public sealed class LevelBackground : MonoBehaviour
+    public sealed class LevelBackground : MonoBehaviour, IGameFixedUpdateListener
     {
         private float _startPositionY;
 
@@ -21,6 +22,7 @@ namespace Level
 
         private void Awake()
         {
+            IGameListener.Register(this);
             _startPositionY = MParams.MStartPositionY;
             _endPositionY = MParams.MEndPositionY;
             _movingSpeedY = MParams.MMovingSpeedY;
@@ -30,7 +32,7 @@ namespace Level
             _positionZ = position.z;
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate(float fixedDeltaTime)
         {
             if (_myTransform.position.y <= _endPositionY)
             {
@@ -43,7 +45,7 @@ namespace Level
 
             _myTransform.position -= new Vector3(
                 _positionX,
-                _movingSpeedY * Time.fixedDeltaTime,
+                _movingSpeedY * fixedDeltaTime,
                 _positionZ
             );
         }

@@ -1,6 +1,5 @@
-using System;
-using Character;
 using Components;
+using GameSystem;
 using UnityEngine;
 
 namespace Input
@@ -11,13 +10,18 @@ namespace Input
         public const float Stop = 0;
     }
         
-    public sealed class InputManager : MonoBehaviour
+    public sealed class InputManager : MonoBehaviour, IGameUpdateListener, IGameFixedUpdateListener
     {
         public float HorizontalDirection { get; private set; }
 
         [SerializeField] private GameObject Character;
-        
-        private void Update()
+
+        public void Awake()
+        {
+            IGameListener.Register(this);
+        }
+
+        public void OnUpdate(float deltaTime)
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
@@ -39,10 +43,10 @@ namespace Input
             }
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate(float fixedDelaTime)
         {
             Character.GetComponent<MoveComponent>()
-                .MoveByRigidbodyVelocity(new Vector2(HorizontalDirection, 0) * Time.fixedDeltaTime);
+                .MoveByRigidbodyVelocity(new Vector2(HorizontalDirection, 0) * fixedDelaTime);
         }
     }
 }

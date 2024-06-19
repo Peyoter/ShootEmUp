@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Components;
 using Enemy.Agents;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {

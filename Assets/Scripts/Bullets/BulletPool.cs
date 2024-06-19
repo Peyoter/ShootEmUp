@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using GameSystem;
 using Level;
 using UnityEngine;
 
 namespace Bullets
 {
-    public sealed class BulletPool : MonoBehaviour
+    public sealed class BulletPool : MonoBehaviour, IGameFixedUpdateListener
     {
         [SerializeField] private int InitialCount = 50;
         [SerializeField] private Transform Container;
@@ -18,6 +19,7 @@ namespace Bullets
 
         private void Awake()
         {
+            IGameListener.Register(this);
             for (var i = 0; i < InitialCount; i++)
             {
                 var bullet = Instantiate(Prefab, Container);
@@ -25,7 +27,7 @@ namespace Bullets
             }
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate(float t)
         {
             _mCache.Clear();
             _mCache.AddRange(_mActiveBullets);

@@ -1,23 +1,30 @@
 using Components;
+using GameSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
+using GameManager;
 
 namespace Character
 {
-    public sealed class CharacterManager : MonoBehaviour
+    public sealed class CharacterManager : MonoBehaviour, IGameStartListener, IGameFinishLister
     {
-        [SerializeField] private GameManager.GameManager GameManager;
+        [SerializeField] private GameStateManager GameStatus;
 
+        public void Awake()
+        {
+            IGameListener.Register(this);
+        }
 
-        private void OnEnable()
+        public void OnStartGame()
         {
             GetComponent<DeathObserverComponent>().OnDeath += OnCharacterDeath;
         }
 
-        private void OnDisable()
+        public void OnFinishGame()
         {
             GetComponent<DeathObserverComponent>().OnDeath -= OnCharacterDeath;
         }
 
-        private void OnCharacterDeath(GameObject _) => GameManager.FinishGame();
+        private void OnCharacterDeath(GameObject _) => GameStatus.FinishGame();
     }
 }
