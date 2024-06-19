@@ -26,7 +26,8 @@ namespace Enemy.Agents
 
         public void OnFixedUpdate(float fixedDeltaTime)
         {
-            if (_compositeCondition.IsTrue()) return;
+            
+            if (!_compositeCondition.IsTrue()) return;
 
             _currentTime -= fixedDeltaTime;
             if (_currentTime <= 0)

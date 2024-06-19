@@ -14,7 +14,7 @@ namespace Enemy.Agents
 
         public bool IsTrue()
         {
-            return _conditions.Find(condition => !condition.Invoke()) != null;
+            return _conditions.Find(condition => condition.Invoke()) != null;
         }
     }
 }

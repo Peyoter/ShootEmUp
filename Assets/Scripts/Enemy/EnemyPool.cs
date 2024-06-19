@@ -54,7 +54,7 @@ namespace Enemy
             return enemy;
         }
 
-        public void UnspawnEnemy(GameObject enemy)
+        public void UnSpawnEnemy(GameObject enemy)
         {
             enemy.transform.SetParent(Container);
             _enemyPool.Enqueue(enemy);

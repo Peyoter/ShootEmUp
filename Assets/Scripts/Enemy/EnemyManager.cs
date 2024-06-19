@@ -55,7 +55,7 @@ namespace Enemy
             if (_mActiveEnemies.Remove(enemy))
             {
                 enemy.GetComponent<HitPointsComponent>().HpEmpty -= OnDestroyed;
-                EnemyPool.UnspawnEnemy(enemy);
+                EnemyPool.UnSpawnEnemy(enemy);
             }
         }
     }
